@@ -1,9 +1,8 @@
 ﻿namespace PersonalBlog.Features.Projects
 {
-    using PersonalBlog.Data.Models;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using static PersonalBlog.Infrastructure.Constants.Validation.Project;
+
     public class ProjectUpdateRequestModel
     {
         [Required]

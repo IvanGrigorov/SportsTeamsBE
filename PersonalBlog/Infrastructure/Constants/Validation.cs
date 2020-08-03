@@ -4,6 +4,20 @@
     {
         public class Project
         {
+            public const int DescriptionValidationLength = 20000;
+
+            public const int TitleValidationLength = 2000;
+        }
+
+        public class Article
+        {
+            public const int BodyValidationLength = 20000;
+
+            public const int TitleValidationLength = 2000;
+        }
+
+        public class Technology
+        {
             public const int DescriptionValidationLength = 2000;
 
             public const int TitleValidationLength = 2000;

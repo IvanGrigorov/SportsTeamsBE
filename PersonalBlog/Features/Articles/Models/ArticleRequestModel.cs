@@ -3,13 +3,17 @@
     using Microsoft.AspNetCore.Http;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using static Infrastructure.Constants.Validation.Article;
+
 
     public class ArticleRequestModel
     {
         [Required]
+        [MaxLength(BodyValidationLength)]
         public string Body { get; set; }
 
         [Required]
+        [MaxLength(TitleValidationLength)]
         public string Title { get; set; }
 
         [Required]

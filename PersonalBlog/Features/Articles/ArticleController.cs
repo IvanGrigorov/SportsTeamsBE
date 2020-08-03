@@ -1,16 +1,16 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using PersonalBlog.Features.Articles.Models;
-using PersonalBlog.Features.Galleries;
-using PersonalBlog.Features.Galleries.Models;
-using PersonalBlog.Features.Navigation;
-using PersonalBlog.Infrastructure.Extensions;
-using PersonalBlog.Infrastructure.Filters;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace PersonalBlog.Features.Articles
+﻿namespace PersonalBlog.Features.Articles
 {
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+    using PersonalBlog.Features.Articles.Models;
+    using PersonalBlog.Features.Galleries;
+    using PersonalBlog.Features.Galleries.Models;
+    using PersonalBlog.Features.Navigation;
+    using PersonalBlog.Infrastructure.Extensions;
+    using PersonalBlog.Infrastructure.Filters;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using static Infrastructure.Constants.AppConstants.RoutesContants;
     public class ArticleController : HobbiesAppController
     {
         private readonly IArticleService articleService;
@@ -56,7 +56,7 @@ namespace PersonalBlog.Features.Articles
         [HttpDelete]
         [Authorize]
         [IsAdmin]
-        [Route("Delete/{id}")]
+        [Route(DeleteByID)]
         public async Task<IActionResult> Delete(int id)
         {
             var userId = this.User.GetId();
@@ -81,7 +81,7 @@ namespace PersonalBlog.Features.Articles
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route(Id)]
         public async Task<ArticleDetailsResponseModel> Get(int id)
         {
             return await this.articleService.Get(id);

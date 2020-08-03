@@ -12,6 +12,8 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using static Infrastructure.Constants.AppConstants.RoutesContants;
+
 
     public class ProjectController : ProgrammingAppController
     {
@@ -56,7 +58,7 @@
         }
 
         [HttpGet]
-        [Route("{id}")]
+        [Route(Id)]
         public async Task<ActionResult<ProjecDetailsServiceModel>> Project(int id)
         {
             var project = await this.projectService.GetProject(id);
@@ -90,7 +92,7 @@
 
         [Authorize]
         [HttpDelete]
-        [Route("{id}")]
+        [Route(DeleteByID)]
         public async Task<IActionResult> Delete(int id)
         {
             var userId = this.User.GetId();

@@ -7,6 +7,7 @@
     using PersonalBlog.Infrastructure.Filters;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using static Infrastructure.Constants.AppConstants.RoutesContants;
 
     public class TechnologyController : ProgrammingAppController
     {
@@ -44,7 +45,7 @@
         [Authorize]
         [IsAdmin]
         [HttpDelete]
-        [Route("{id}")]
+        [Route(DeleteByID)]
         public async Task<IActionResult> Delete(int id)
         {
 
