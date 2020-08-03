@@ -1,4 +1,4 @@
-# PersonalBlog
+# Blog API
 Blog Backend Api
 
 This is a backend api in C# that should serve the needs of the frontend client and allow the users to
