@@ -9,11 +9,9 @@ namespace PersonalBlog.Data.Models
     {
         public int Id { get; set; }
 
-        [Required]
-        public int ProjectId { get; set; }
+        public int? ProjectId { get; set; }
 
-        [Required]
-        public int ArticleId { get; set; }
+        public int? ArticleId { get; set; }
 
         [Required]
         public string FileName { get; set; }

@@ -15,6 +15,10 @@
 
         public string UserName { get; set; }
 
+        public string CreatedOn { get; set; }
+
+        public string Website { get; set; }
+
         public IEnumerable<Technology> Technologies { get; set; }
 
         public IEnumerable<Gallery> Gallery { get; set; }

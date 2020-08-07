@@ -118,7 +118,7 @@
         [IsAdmin]
         [HttpPut]
         [Route(nameof(Update))]
-        public async Task<IActionResult> Update(ProjectUpdateRequestModel projectUpdateRequestModel)
+        public async Task<IActionResult> Update([FromForm] ProjectUpdateRequestModel projectUpdateRequestModel)
         {
             var userId = this.User.GetId();
 

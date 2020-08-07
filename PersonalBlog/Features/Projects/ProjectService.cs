@@ -26,7 +26,8 @@
                 Title = projectRequestModel.Title,
                 Description = projectRequestModel.Description,
                 UserId = userId,
-                CreatedOn = projectRequestModel.CreatedOn
+                CreatedOn = projectRequestModel.CreatedOn,
+                Website = projectRequestModel.Website
             };
 
             this.personalBlogDbContext.Add(project);
@@ -62,8 +63,10 @@
                     Description = p.Description,
                     UserId = p.UserId,
                     UserName = p.User.UserName,
+                    CreatedOn = p.CreatedOn,
                     Technologies = p.ProjectTechnologies.Select(pt => pt.Technology),
-                    Gallery = p.Gallery
+                    Gallery = p.Gallery,
+                    Website = p.Website
 
                 })
                 .FirstOrDefaultAsync();

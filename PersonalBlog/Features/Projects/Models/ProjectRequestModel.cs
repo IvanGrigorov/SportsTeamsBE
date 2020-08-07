@@ -18,6 +18,9 @@
         public string CreatedOn { get; set; }
 
         [Required]
+        public string Website { get; set; }
+
+        [Required]
         public int[] Technologies { get; set; }
 
         public IEnumerable<IFormFile> Gallery { get; set; } = new List<IFormFile>();

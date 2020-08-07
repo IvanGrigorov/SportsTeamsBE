@@ -61,6 +61,18 @@
                     .ToListAsync();
         }
 
+        public async Task<TechnologyResponseModel> GetTechnology(int technologyId)
+        {
+            var technology = await this.GetTechnologyById(technologyId);
+
+            return new TechnologyResponseModel
+            {
+                Id = technology.Id,
+                Description = technology.Description,
+                Title = technology.Title
+            };
+        }
+
         public async Task<Technology> GetTechnologyById(int technologyId)
         {
             return await this.personalBlogDbContext

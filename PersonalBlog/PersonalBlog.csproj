@@ -12,6 +12,12 @@
     <Compile Remove="Data\Migrations\20200803113327_ArticleTable.Designer.cs" />
     <Compile Remove="Data\Migrations\20200803115352_ArticleTable.cs" />
     <Compile Remove="Data\Migrations\20200803115352_ArticleTable.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200804221234_SomeConstraintUpdates.cs" />
+    <Compile Remove="Data\Migrations\20200804221234_SomeConstraintUpdates.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200804221638_SomeConstraintUpdatesV2.cs" />
+    <Compile Remove="Data\Migrations\20200804221638_SomeConstraintUpdatesV2.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200804221727_SomeConstraintUpdatesV2.cs" />
+    <Compile Remove="Data\Migrations\20200804221727_SomeConstraintUpdatesV2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

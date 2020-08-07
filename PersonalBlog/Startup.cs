@@ -51,6 +51,7 @@ namespace PersonalBlog
                 .UseAuthentication()
                 .UseAuthorization()
                 .AddSwaggerUI()
+                .UseStaticFiles()
                 .UseCors(x => x
                     .AllowAnyOrigin()
                     .AllowAnyMethod()

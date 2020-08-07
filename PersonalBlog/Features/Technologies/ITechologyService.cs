@@ -17,5 +17,7 @@
 
         public Task<Technology> GetTechnologyById(int technologyId);
 
+        public Task<TechnologyResponseModel> GetTechnology(int technologyId);
+
     }
 }

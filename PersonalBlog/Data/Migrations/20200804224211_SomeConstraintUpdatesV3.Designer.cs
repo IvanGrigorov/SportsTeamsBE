@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PersonalBlog.Data;
 
 namespace PersonalBlog.Data.Migrations
 {
     [DbContext(typeof(PersonalBlogDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200804224211_SomeConstraintUpdatesV3")]
+    partial class SomeConstraintUpdatesV3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -426,12 +428,12 @@ namespace PersonalBlog.Data.Migrations
                     b.HasOne("PersonalBlog.Data.Models.Article", "Article")
                         .WithMany("Gallery")
                         .HasForeignKey("ArticleId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("PersonalBlog.Data.Models.Project", "Project")
                         .WithMany("Gallery")
                         .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.NoAction);
                 });
 
             modelBuilder.Entity("PersonalBlog.Data.Models.Project", b =>

@@ -18,9 +18,9 @@
                 return Guid.NewGuid().ToString();
             }
 
-            public static string ReturnFullFilePath(string rootFolderPath, string fileName, string fileExtension)
+            public static string ReturnFullFilePath(string rootFolderPath, string fileUniqueName)
             {
-                return Path.Combine(rootFolderPath + ImageFolder, fileName + fileExtension);
+                return Path.Combine(rootFolderPath + ImageFolder, fileUniqueName);
             }
         }
     }

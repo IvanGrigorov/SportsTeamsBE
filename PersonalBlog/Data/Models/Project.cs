@@ -29,6 +29,7 @@ namespace PersonalBlog.Data.Models
 
         public List<Gallery> Gallery { get; set; }
 
-
+        [Required]
+        public string Website { get; set; }
     }
 }

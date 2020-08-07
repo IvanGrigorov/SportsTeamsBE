@@ -42,6 +42,16 @@
 
         }
 
+        [HttpGet]
+        [Route(Id)]
+        public async Task<TechnologyResponseModel> Technology(int id)
+        {
+            var technology = await this.techologyService.GetTechnology(id);
+
+            return technology;
+
+        }
+
         [Authorize]
         [IsAdmin]
         [HttpDelete]

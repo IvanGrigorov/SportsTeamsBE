@@ -16,7 +16,6 @@
         }
 
         [HttpPost]
-        [Route(nameof(Search))]
         public async Task<IEnumerable<ProjectSearchResponseModel>> Search(ProjectSearchRequestModel projectSearchRequestModel)
         {
             return await this.searchService.GetSearchedProjects(projectSearchRequestModel);

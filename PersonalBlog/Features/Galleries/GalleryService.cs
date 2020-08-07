@@ -89,9 +89,10 @@
 
         public async Task UploadImage(IFormFile file, GalleryMapperObject galleryMapperObject)
         {
-            var filePath = ReturnFullFilePath(this.webHostEnvironment.WebRootPath, ReturnUniqueFileName(), getFileExtension(file));
+            var fileUniqueName = ReturnUniqueFileName() + getFileExtension(file);
+            var filePath = ReturnFullFilePath(this.webHostEnvironment.WebRootPath, fileUniqueName);
 
-            await this.UploadImageInDB(file, filePath, galleryMapperObject);
+            await this.UploadImageInDB(file, fileUniqueName, galleryMapperObject);
             await this.UploadImageInFileStorage(file, filePath);
 
         }
