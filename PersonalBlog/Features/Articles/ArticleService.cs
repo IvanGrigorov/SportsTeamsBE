@@ -16,14 +16,15 @@
         {
         }
 
-        public async Task<int> CreateArticle(ArticleRequestModel articleRequestModel)
+        public async Task<int> CreateArticle(ArticleRequestModel articleRequestModel, string userId)
         {
             var article = new Article
             {
                 Title = articleRequestModel.Title,
                 Body = articleRequestModel.Body,
                 CreatedOn = articleRequestModel.CreatedOn,
-                TagsJson = articleRequestModel.TagsJson
+                TagsJson = articleRequestModel.TagsJson,
+                UserId = userId
             };
 
             this.personalBlogDbContext
@@ -50,6 +51,7 @@
         {
             return await this.personalBlogDbContext
                         .Article
+                        .Where(a => a.Id == id)
                         .Select(a => new ArticleDetailsResponseModel
                         {
                             Id = a.Id,

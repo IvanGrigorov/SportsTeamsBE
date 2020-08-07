@@ -7,7 +7,7 @@
 
     public interface IArticleService
     {
-        public Task<int> CreateArticle(ArticleRequestModel articleRequestModel);
+        public Task<int> CreateArticle(ArticleRequestModel articleRequestModel, string userId);
 
         public Task<bool> DeleteArticle(int id, string userId);
 

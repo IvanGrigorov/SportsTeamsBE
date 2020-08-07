@@ -29,7 +29,8 @@
         [Route(nameof(Create))]
         public async Task<int> Create([FromForm] ArticleRequestModel articleRequestModel)
         {
-            var articleId = await this.articleService.CreateArticle(articleRequestModel);
+            var userId = this.User.GetId();
+            var articleId = await this.articleService.CreateArticle(articleRequestModel, userId);
             var galleryObjectMapper = new GalleryMapperObject
             {
                 ArticleId = articleId
@@ -42,7 +43,7 @@
         [Authorize]
         [IsAdmin]
         [Route(nameof(Update))]
-        public async Task<IActionResult> Update(ArticleUpdateRequestModel articleUpdateRequestModel)
+        public async Task<IActionResult> Update([FromForm] ArticleUpdateRequestModel articleUpdateRequestModel)
         {
             var userId = this.User.GetId();
             var isUpdateSuccessful = await this.articleService.UpdateArticle(articleUpdateRequestModel, userId);
