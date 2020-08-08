@@ -28,7 +28,7 @@
         {
             var files = await this.personalBlogDbContext
                 .Gallery
-                .Where(g => g.ProjectId == galleryMapperObject.ProjectId || g.ArticleId == galleryMapperObject.ArticleId)
+                .Where(g => g.ProjectId == galleryMapperObject.ProjectId && g.ArticleId == galleryMapperObject.ArticleId)
                 .ToListAsync();
 
             this.DeleteImageFromFileStorage(files);
@@ -101,7 +101,8 @@
         {
             foreach (var file in files)
             {
-                File.Delete(file.FileName);
+                var filePath = ReturnFullFilePath(this.webHostEnvironment.WebRootPath, file.FileName);
+                File.Delete(filePath);
             }
 
         }

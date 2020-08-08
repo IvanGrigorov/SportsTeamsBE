@@ -62,13 +62,15 @@
         {
             var userId = this.User.GetId();
             var isDeletionSuccessful = await this.articleService.DeleteArticle(id, userId);
+
+            var galleryMappedObject = new GalleryMapperObject
+            {
+                ArticleId = id
+            };
+            await this.galleryService.DeleteFilesForProject(galleryMappedObject);
+
             if (isDeletionSuccessful)
             {
-                var galleryMappedObject = new GalleryMapperObject
-                {
-                    ArticleId = id
-                };
-                await this.galleryService.DeleteFilesForProject(galleryMappedObject);
                 return Ok();
             }
             return BadRequest();

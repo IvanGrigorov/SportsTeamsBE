@@ -97,19 +97,19 @@
         {
             var userId = this.User.GetId();
 
-            var isDeletionSuccessful = await this.projectService.DeleteProject(id, userId);
-
-            if (!isDeletionSuccessful)
-            {
-                return BadRequest();
-            }
-
             var galleryMapperObject = new GalleryMapperObject
             {
                 ProjectId = id
             };
 
             await this.galleryService.DeleteFilesForProject(galleryMapperObject);
+
+            var isDeletionSuccessful = await this.projectService.DeleteProject(id, userId);
+
+            if (!isDeletionSuccessful)
+            {
+                return BadRequest();
+            }
 
             return Ok();
         }
