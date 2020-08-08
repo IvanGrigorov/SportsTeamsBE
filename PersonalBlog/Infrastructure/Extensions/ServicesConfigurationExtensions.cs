@@ -23,7 +23,7 @@
         {
             services.AddDbContext<PersonalBlogDbContext>(options =>
                 options.UseSqlServer(
-                    configuration.GetConnectionString("DefaultConnection")));
+                    configuration.GetConnectionString("DefaultConnection"), options => options.EnableRetryOnFailure()));
 
             return services;
         } 
