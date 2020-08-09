@@ -102,7 +102,7 @@
                 ProjectId = id
             };
 
-            await this.galleryService.DeleteFilesForProject(galleryMapperObject);
+            var files = await this.galleryService.ReturnFilesForDeletion(galleryMapperObject);
 
             var isDeletionSuccessful = await this.projectService.DeleteProject(id, userId);
 
@@ -110,6 +110,9 @@
             {
                 return BadRequest();
             }
+
+            // await this.galleryService.DeleteImageFromDB(files);
+            this.galleryService.DeleteImageFromFileStorage(files);
 
             return Ok();
         }

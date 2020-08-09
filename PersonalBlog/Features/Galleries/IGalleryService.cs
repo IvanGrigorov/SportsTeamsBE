@@ -18,7 +18,7 @@
 
         public bool ValidateMultupleFiles(IEnumerable<IFormFile> files);
 
-        public Task DeleteFilesForProject(GalleryMapperObject galleryMapperObject);
+        public Task<IEnumerable<Gallery>> ReturnFilesForDeletion(GalleryMapperObject galleryMapperObject);
 
         public void DeleteImageFromFileStorage(IEnumerable<Gallery> files);
 

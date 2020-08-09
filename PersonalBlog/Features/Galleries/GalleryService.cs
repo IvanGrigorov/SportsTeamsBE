@@ -24,16 +24,14 @@
             this.webHostEnvironment = webHostEnvironment;
         }
 
-        public async Task DeleteFilesForProject(GalleryMapperObject galleryMapperObject)
+        public async Task<IEnumerable<Gallery>> ReturnFilesForDeletion(GalleryMapperObject galleryMapperObject)
         {
             var files = await this.personalBlogDbContext
                 .Gallery
                 .Where(g => g.ProjectId == galleryMapperObject.ProjectId && g.ArticleId == galleryMapperObject.ArticleId)
                 .ToListAsync();
 
-            this.DeleteImageFromFileStorage(files);
-            await this.DeleteImageFromDB(files);
-
+            return files;
         }
 
         public async Task<bool> ObtainMultipleFiles(IEnumerable<IFormFile> files, GalleryMapperObject galleryMapperObject)

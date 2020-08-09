@@ -44,12 +44,14 @@
             builder.Entity<Gallery>()
                 .HasOne(g => g.Project)
                 .WithMany(p => p.Gallery)
-                .OnDelete(DeleteBehavior.NoAction);
+                .HasForeignKey(k => k.ProjectId)
+                .OnDelete(DeleteBehavior.Cascade);
 
 
             builder.Entity<Gallery>()
                 .HasOne(g => g.Article)
                 .WithMany(a => a.Gallery)
+                .HasForeignKey(k => k.ArticleId)
                 .OnDelete(DeleteBehavior.Cascade);
                 
 
