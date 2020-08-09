@@ -37,6 +37,7 @@
         [IsAdmin]
         [HttpPost]
         [Route(nameof(Create))]
+        [RequestSizeLimit(100000000)]
         public async Task<ActionResult<int>> Create([FromForm] ProjectRequestModel projectModel)
         {
             var userId = this.User.GetId();

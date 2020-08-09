@@ -2,16 +2,19 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using static PersonalBlog.Infrastructure.Constants.Validation.Article;
+
 
     public class Article
     {
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(15000)]
+        [MaxLength(BodyValidationLength)]
         public string Body { get; set; }
 
         [Required]
+        [MaxLength(TitleValidationLength)]
         public string Title { get; set; }
 
         [Required]
@@ -23,6 +26,7 @@
         public string CreatedOn { get; set; }
 
         [Required]
+        [MaxLength(TagsValidationLength)]
         public string TagsJson { get; set; }
 
         public List<Gallery> Gallery { get; set; }

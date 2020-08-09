@@ -1,19 +1,19 @@
-﻿using Microsoft.VisualBasic;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace PersonalBlog.Data.Models
+﻿namespace PersonalBlog.Data.Models
 {
+    using static PersonalBlog.Infrastructure.Constants.Validation.Project;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     public class Project
     {
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(2500)]
+        [MaxLength(DescriptionValidationLength)]
         public string Description { get; set; }
 
         [Required]
+        [MaxLength(TitleValidationLength)]
         public string Title { get; set; }
 
         [Required]

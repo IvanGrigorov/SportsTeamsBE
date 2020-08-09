@@ -27,6 +27,8 @@
         [Authorize]
         [IsAdmin]
         [Route(nameof(Create))]
+        [RequestSizeLimit(100000000)]
+
         public async Task<int> Create([FromForm] ArticleRequestModel articleRequestModel)
         {
             var userId = this.User.GetId();
