@@ -63,8 +63,6 @@
         public async Task<IActionResult> Delete(int id)
         {
             var userId = this.User.GetId();
-            var isDeletionSuccessful = await this.articleService.DeleteArticle(id, userId);
-
 
             var galleryMappedObject = new GalleryMapperObject
             {
@@ -73,6 +71,7 @@
 
             var files = await this.galleryService.ReturnFilesForDeletion(galleryMappedObject);
 
+            var isDeletionSuccessful = await this.articleService.DeleteArticle(id, userId);
 
             if (!isDeletionSuccessful)
             {
