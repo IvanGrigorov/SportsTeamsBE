@@ -19,4 +19,10 @@ Features:
 - Uploaded in Azure 
 - Followed Folder by Feature architecture  
 
+Bonus:
+
+- IsAdmin custom Filter
+- Swagger integration
+- CORS validation
+
 For contacts ivangrigorov9 at gmail.com
