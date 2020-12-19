@@ -10,6 +10,13 @@ This is a backend api in C# that should serve the needs of the frontend client a
   
 To see the routes and the requests payload models, just run the project or upload it in cloud and use the default Swagger page.
 
-Further info and documentation will be added to the README. 
+It can be combined with the Angular Frontend here [Angular FE](https://github.com/IvanGrigorov/Blog "Angular FE")
+
+Features: 
+- Login and registration with [JWT Token](https://jwt.io/ "JWT Token")
+- Using Identity for user manupulation
+- Using Entity Framework for databases
+- Uploaded in Azure 
+- Followed Folder by Feature architecture  
 
 For contacts ivangrigorov9 at gmail.com
