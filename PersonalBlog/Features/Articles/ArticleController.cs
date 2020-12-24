@@ -11,6 +11,8 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using static Infrastructure.Constants.AppConstants.RoutesContants;
+    using static Infrastructure.Constants.Validation.Request; 
+     
     public class ArticleController : HobbiesAppController
     {
         private readonly IArticleService articleService;
@@ -27,7 +29,7 @@
         [Authorize]
         [IsAdmin]
         [Route(nameof(Create))]
-        [RequestSizeLimit(100000000)]
+        [RequestSizeLimit(RequestBodySize)]
 
         public async Task<int> Create([FromForm] ArticleRequestModel articleRequestModel)
         {
