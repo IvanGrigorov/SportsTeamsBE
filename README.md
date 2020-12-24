@@ -20,7 +20,7 @@ Features:
 - Followed Folder by Feature architecture  
 
 Bonus:
-
+- Added validation constants and separate validation classes
 - IsAdmin custom Filter
 - Swagger integration
 - CORS validation
