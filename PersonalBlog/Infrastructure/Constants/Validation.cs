@@ -34,7 +34,7 @@
         
         public class Request
         {
-            public const int RequestBodySize = 20000000;
+            public const int RequestBodySize = 100000000;
         }
     }
 }
