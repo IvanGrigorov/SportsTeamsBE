@@ -31,5 +31,10 @@
 
             public const int ImageMaxSize = 20000000;
         }
+        
+        public class Request
+        {
+            public const int RequestBodySize = 20000000;
+        }
     }
 }
