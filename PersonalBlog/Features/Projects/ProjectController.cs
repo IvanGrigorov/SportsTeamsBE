@@ -13,7 +13,7 @@
     using System.Linq;
     using System.Threading.Tasks;
     using static Infrastructure.Constants.AppConstants.RoutesContants;
-
+    using static Infrastructure.Constants.Validation.Request;
 
     public class ProjectController : ProgrammingAppController
     {
@@ -37,7 +37,7 @@
         [IsAdmin]
         [HttpPost]
         [Route(nameof(Create))]
-        [RequestSizeLimit(100000000)]
+        [RequestSizeLimit(RequestBodySize )]
         public async Task<ActionResult<int>> Create([FromForm] ProjectRequestModel projectModel)
         {
             var userId = this.User.GetId();
