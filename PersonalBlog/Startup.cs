@@ -53,8 +53,7 @@ namespace PersonalBlog
                 .AddSwaggerUI()
                 .UseStaticFiles()
                 .UseCors(x => x
-                    .WithOrigins("https://angularblogfrontend.azurewebsites.net",
-                                    "https://ivanit.eu")
+                    .WithOrigins("https://ivanit.eu")
                     .AllowAnyMethod()
                     .AllowAnyHeader())
                 .UseEndpoints(endpoints =>
