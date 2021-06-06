@@ -5,6 +5,6 @@
     using System.Threading.Tasks;
     public interface ISearchService
     {
-        public Task<IEnumerable<ProjectSearchResponseModel>> GetSearchedProjects(ProjectSearchRequestModel projectSearchRequestModel);
+        public Task<SearchResponseModel> GetSearchedItems(SearchRequestModel searchRequestModel);
     }
 }

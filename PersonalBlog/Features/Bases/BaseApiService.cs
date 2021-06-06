@@ -4,10 +4,10 @@
 
     public abstract class BaseApiService
     {
-        protected readonly PersonalBlogDbContext personalBlogDbContext;
-        public BaseApiService(PersonalBlogDbContext personalBlogDbContext)
+        protected readonly SportsAppDbContext sportsAppDbContext;
+        public BaseApiService(SportsAppDbContext sportsAppDbContext)
         {
-            this.personalBlogDbContext = personalBlogDbContext;
+            this.sportsAppDbContext = sportsAppDbContext;
         }
     }
 }

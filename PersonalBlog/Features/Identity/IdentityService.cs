@@ -17,7 +17,7 @@
     public class IdentityService : BaseApiService, IIdentityService
     {
 
-        public IdentityService(PersonalBlogDbContext personalBlogDbContext) : base(personalBlogDbContext)
+        public IdentityService(SportsAppDbContext sportsAppDbContext) : base(sportsAppDbContext)
         {
 
         }
@@ -45,13 +45,13 @@
 
         public async Task<ActionResult<UserResponseModel>> GetUserInfo(string userId)
         {
-            return await this.personalBlogDbContext
+            return await this.sportsAppDbContext
                 .Users
                 .Where(u => u.Id == userId)
                 .Select(u => new UserResponseModel()
                 {
                     UserName = u.UserName,
-                    IsAdmin = (u.UserRole == UserRole.Admin) ? true : false
+                    IsAdmin = (u.UserRole == UserRole.Admin)
                 })
                 .FirstOrDefaultAsync();
 

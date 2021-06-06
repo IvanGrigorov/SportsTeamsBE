@@ -2,39 +2,17 @@
 {
     public class Validation
     {
-        public class Project
+        public class Team
         {
-            public const int DescriptionValidationLength = 200000;
-
-            public const int TitleValidationLength = 2000;
+            public const int TeamNameLength = 200;
         }
 
-        public class Article
+        public class Player
         {
-            public const int BodyValidationLength = 200000;
+            public const int FirstNameLength = 200;
 
-            public const int TitleValidationLength = 2000;
+            public const int SecondNameLength = 200;
 
-            public const int TagsValidationLength = 2000;
-        }
-
-        public class Technology
-        {
-            public const int DescriptionValidationLength = 20000;
-
-            public const int TitleValidationLength = 2000;
-        }
-
-        public class Image
-        {
-            public static readonly string[] ImageExtensions = { ".jpeg", ".png", ".gif", ".jpg" };
-
-            public const int ImageMaxSize = 20000000;
-        }
-        
-        public class Request
-        {
-            public const int RequestBodySize = 100000000;
         }
     }
 }

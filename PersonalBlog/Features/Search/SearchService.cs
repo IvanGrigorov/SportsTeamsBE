@@ -10,24 +10,30 @@
 
     public class SearchService : BaseApiService, ISearchService
     {
-        public SearchService(PersonalBlogDbContext personalBlogDbContext) :base(personalBlogDbContext)
+        public SearchService(SportsAppDbContext sportsAppDbContext) :base(sportsAppDbContext)
         {
 
         }
 
-        public async Task<IEnumerable<ProjectSearchResponseModel>> GetSearchedProjects(ProjectSearchRequestModel projectSearchRequestModel)
+        public async Task<SearchResponseModel> GetSearchedItems(SearchRequestModel searchRequestModel)
         {
-            return await this.personalBlogDbContext
-                .Project
-                .Where(p => p.Title.Contains(projectSearchRequestModel.Query) ||
-                            p.ProjectTechnologies
-                                .Any(pt => pt.Technology.Title.Contains(projectSearchRequestModel.Query)))
-                .Select(p => new ProjectSearchResponseModel
-                {
-                    Title = p.Title,
-                    Id = p.Id
-                })
+
+             var teams = await this.sportsAppDbContext
+                .Team
+                .Where(t => t.Name.Contains(searchRequestModel.Query))
                 .ToListAsync();
+
+            var players = await this.sportsAppDbContext
+                .Player
+                .Where(p => p.FirstName.Contains(searchRequestModel.Query) ||
+                            p.SecondName.Contains(searchRequestModel.Query))
+                .ToListAsync();
+
+            return new SearchResponseModel
+            {
+                Players = players,
+                Teams = teams
+            };
         }
     }
 }

@@ -10,7 +10,7 @@
         public static void ApplyMigrations(this IApplicationBuilder app)
         {
             using var services = app.ApplicationServices.CreateScope();
-            var dbContext = services.ServiceProvider.GetService<PersonalBlogDbContext>();
+            var dbContext = services.ServiceProvider.GetService<SportsAppDbContext>();
 
             dbContext.Database.Migrate();
         }

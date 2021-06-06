@@ -8,20 +8,15 @@
     using PersonalBlog.Data;
     using PersonalBlog.Data.Models;
     using PersonalBlog.Features.Articles;
-    using PersonalBlog.Features.Discovery;
-    using PersonalBlog.Features.Galleries;
     using PersonalBlog.Features.Identity;
-    using PersonalBlog.Features.Projects;
-    using PersonalBlog.Features.ProjectTechnologies;
     using PersonalBlog.Features.Search;
-    using PersonalBlog.Features.Technologies;
     using PersonalBlog.Infrastructure.Filters;
 
     public static class ServicesConfigurationExtensions
     {
         public static IServiceCollection AddDB(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<PersonalBlogDbContext>(options =>
+            services.AddDbContext<SportsAppDbContext>(options =>
                 options.UseSqlServer(
                     configuration.GetConnectionString("DefaultConnection"), options => options.EnableRetryOnFailure()));
 
@@ -30,7 +25,7 @@
         public static IServiceCollection AddIdentity(this IServiceCollection services)
         {
             services.AddDefaultIdentity<User>()
-                .AddEntityFrameworkStores<PersonalBlogDbContext>();
+                .AddEntityFrameworkStores<SportsAppDbContext>();
 
             return services;
         }
@@ -60,13 +55,9 @@
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddTransient<IIdentityService, IdentityService>()
-                    .AddTransient<IProjectService, ProjectService>()
-                    .AddTransient<ITechologyService, TechnologyService>()
-                    .AddTransient<IProjectTecnologyService, ProjectTecnologyService>()
-                    .AddTransient<IGalleryService, GalleryService>()
-                    .AddTransient<ISearchService, SearchService>()
-                    .AddTransient<IArticleService, ArticleService>()
-                    .AddTransient<IDiscoveryService, DiscoveryService>();
+                    .AddTransient<ITeamsService, TeamsService>()
+                    .AddTransient<IPlayersService, PlayersService>()
+                    .AddTransient<ISearchService, SearchService>();
 
             return services;
         }

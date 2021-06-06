@@ -1,12 +1,12 @@
 ﻿namespace PersonalBlog.Features.Search
 {
     using Microsoft.AspNetCore.Mvc;
-    using PersonalBlog.Features.Navigation;
+    using PersonalBlog.Features.Bases;
     using PersonalBlog.Features.Search.Models;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    public class SearchController : ProgrammingAppController
+    public class SearchController : BaseAppController
     {
         private readonly ISearchService searchService;
 
@@ -16,9 +16,9 @@
         }
 
         [HttpPost]
-        public async Task<IEnumerable<ProjectSearchResponseModel>> Search(ProjectSearchRequestModel projectSearchRequestModel)
+        public async Task<SearchResponseModel> Search(SearchRequestModel searchRequestModel)
         {
-            return await this.searchService.GetSearchedProjects(projectSearchRequestModel);
+            return await this.searchService.GetSearchedItems(searchRequestModel);
         }
     }
 }
