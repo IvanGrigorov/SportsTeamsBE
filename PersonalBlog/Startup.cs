@@ -53,7 +53,7 @@ namespace PersonalBlog
                 .AddSwaggerUI()
                 .UseStaticFiles()
                 .UseCors(x => x
-                    .WithOrigins("https://ivanit.eu")
+                    .WithOrigins("http://localhost:3000")
                     .AllowAnyMethod()
                     .AllowAnyHeader())
                 .UseEndpoints(endpoints =>
